@@ -1,0 +1,12 @@
+#include "sample.pb-c.h"
+sample msg = SAMPLE__INIT;
+void *buf;                  
+unsigned len;
+len = amessage__get_packed_size(&msg);
+buf = malloc(len);
+amessage__pack(&msg,buf);
+sample *msg;
+// Unpack the message using protobuf-c.
+msg = amessage__unpack(NULL, msg_len, buf);
+
+
